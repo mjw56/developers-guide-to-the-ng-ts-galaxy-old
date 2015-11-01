@@ -1,22 +1,33 @@
 export class TodoList implements ng.IDirective {
   scope = {
-    todos: '='
+    todos: '=',
+    statusFilter: '='
   };
   templateUrl: string = 'components/TodoList/TodoList.template.html';
   controllerAs: string = 'list';
   bindToController: boolean = true;
   controller: Function = ($scope) => {
+    const editTodo: Function = (todoItem: TodoItem) => {
+      $scope.list.editedTodo = todoItem;
+    };
+    
+    const removeTodo: Function = (todo: TodoItem) => {
+      $scope.list.todos.splice($scope.list.todos.indexOf(todo), 1);
+    };
+    
+    const doneEditing: Function = (todoItem: TodoItem) => {
+      $scope.list.editedTodo = null;
+			todoItem.title = todoItem.title.trim();
+			if (!todoItem.title) {
+				removeTodo(todoItem);
+      }
+    };
+    
     return {
       editedTodo: {},
-      editTodo: <Function>(todo) => {
-        console.log('edit todo', todo)
-      },
-      removeTodo: <Function>(todo) => {
-        $scope.list.todos.splice($scope.list.todos.indexOf(todo), 1);
-      },
-      doneEditing: <Function>(todo) => {
-        console.log('done editing', todo)
-      }
-    }
+      editTodo: editTodo,
+      removeTodo: removeTodo,
+      doneEditing: doneEditing
+    };
   };
 }

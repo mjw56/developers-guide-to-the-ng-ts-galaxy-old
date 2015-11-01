@@ -4,13 +4,13 @@
 	</span>
 	<ul class="filters">
 		<li>
-			<a ng-class="{selected: location.path() == '/'} " href="#/">All</a>
+			<a ng-class="{selected: footer.location.path() == '/'} " href="#/">All</a>
 		</li>
 		<li>
-			<a ng-class="{selected: location.path() == '/active'}" href="#/active">Active</a>
+			<a ng-class="{selected: footer.location.path() == '/active'}" href="#/active">Active</a>
 		</li>
 		<li>
-			<a ng-class="{selected: location.path() == '/completed'}" href="#/completed">Completed</a>
+			<a ng-class="{selected: footer.location.path() == '/completed'}" href="#/completed">Completed</a>
 		</li>
 	</ul>
 	<button class="clear-completed" ng-click="footer.clearDoneTodos()" ng-show="footer.doneCount">Clear completed</button>

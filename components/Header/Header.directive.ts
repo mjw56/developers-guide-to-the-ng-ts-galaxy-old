@@ -1,7 +1,7 @@
 export class Header implements ng.IDirective {
   scope = {
     onSubmit: '&'
-  }
+  };
   templateUrl: string = 'components/Header/Header.template.html';
   controllerAs: string = 'header';
   bindToController: boolean = true;
@@ -12,7 +12,7 @@ export class Header implements ng.IDirective {
         $scope.header.onSubmit({ newTodo: $scope.header.newTodo });
         $scope.header.newTodo = '';
       }
-    }
+    };
   };
   
   static factory(): ng.IDirectiveFactory {
