@@ -1,11 +1,11 @@
 export class App {	
 	todos: Array<any> = [
-		{ title: 'hack the planet', completed: true }, 
-		{ title: 'get motor oil', completed: false },
-		{ title: 'go to kutztown!', completed: true }
+		{ title: 'complete todomvc app', completed: false }, 
+		{ title: 'write blog post', completed: false },
+		{ title: 'make tutorial video', completed: false }
 	];
 	
 	onSubmit(newTodo) {
-		console.log('wuttt', newTodo)
+		this.todos.push({ title: newTodo, completed: false });
 	}
 }

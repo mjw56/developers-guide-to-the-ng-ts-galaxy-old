@@ -1,13 +1,28 @@
-<!DOCTYPE html>
-<html ng-app="first-ng-ts-app">
-  <head>
-    <title>first angular typescript</title>
-    <link href="assets/css/app.css" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root" ng-controller="app-ctrl">
-      <h1>Hello World</h1>
-    </div>
-    <script src="dist/bundle.js"></script>
-  </body>
+<!doctype html>
+<html lang="en" ng-app="todomvc">
+	<head>
+		<meta charset="utf-8">
+		<title>Typescript & AngularJS • TodoMVC</title>
+		<link rel="stylesheet" href="node_modules/todomvc-common/base.css">
+		<link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
+	</head>
+	<body>
+		<section class="todoapp" ng-controller="App as app">
+			<todo-header on-submit="app.onSubmit(newTodo)"></todo-header>
+			<todo-list todos="app.todos"></todo-list>
+			<todo-footer todos="app.todos"></todo-footer>
+		</section>
+		<footer class="info">
+			<p>Double-click to edit a todo</p>
+			<p>Credits:
+					<a href="http://twitter.com/cburgdorf">Christoph Burgdorf</a>,
+					<a href="http://ericbidelman.com">Eric Bidelman</a>,
+					<a href="http://jacobmumm.com">Jacob Mumm</a>
+					<a href="http://blog.igorminar.com">Igor Minar</a> and
+					<a href="http://zamboch.blogspot.com">Pavel Savara</a>
+			</p>
+		</footer>
+		<script src="node_modules/todomvc-common/base.js"></script>
+		<script src="dist/bundle.js"></script>
+	</body>
 </html>
